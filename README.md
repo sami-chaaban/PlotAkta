@@ -1,7 +1,7 @@
 Use this script to turn your Akta results file (.csv) into a nicely formatted pdf (to open in illustrator) and jpg.
 
 
-Useage: python plotakta.py [options] filename. Here are the options you can use:
+Useage: python plotakta.py [options] filename. In addition to plotting the UV trace, you can add these options:
 
 -c Overlay the Conductance trace
 
