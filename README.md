@@ -3,23 +3,59 @@ Use this script to turn your Akta results file (.csv) into a nicely formatted pd
 
 Useage: python plotakta.py [options] filename. In addition to plotting the UV trace, you can add these options:
 
--c Overlay the Conductance trace
 
--b Overlay the %B trace
+# Plot Akta
 
--l Overlay the Log (e.g. injection, elution, etc.)
+Use this script to turn your Akta results file (.csv) into a nicely formatted pdf (to open in illustrator) and png. It will include the UV trace, but additional data can be overlaid (see below).
 
--f Overlay the fractions from the Akta fractionator
+Useage:
 
--t Overlay and label the fractions from the Cetac fractionator
+```
+plotakta.py [options] filename.csv
+```
 
--o Only plot where fractions were collected (add -e if you only want elution fractions)
+## Getting Started
 
--e Only plot fractions that are marked as part of an elution
+* Make sure you have Python 3 installed and have the **numpy** and **matplotlib** packages.
 
--m Draw a vertical line at the maximum UV
+* Export your Akta results file as a .csv file. Avoid spaces in the filename.
 
--h Show help message
+### Options
 
+```
+**-c** Overlay the Conductance trace
 
-An example: python plotakta.py -foe mypurification.csv. 
+**-b** Overlay the %B trace
+
+**-l** Overlay the Log (e.g. injection, elution, etc.)
+
+**-f** Overlay the fractions from the Akta fractionator
+
+**-t** Overlay and label the fractions from the Cetac fractionator
+
+**-o** Only plot where fractions were collected (add *-e* if you only want elution fractions)
+
+**-e** Only plot fractions that are marked as part of an elution
+
+**-m** Draw a vertical line at the maximum UV
+
+**-h** Show help message
+```
+
+Options can be combined together without putting a new dash every time (e.g. ***-cbfm***)
+
+## Example
+
+```
+python plotakta.py -foe mypurification_results.csv
+```
+
+## Updates
+
+* 2020-02-24 - Version 1.1 - Bug fixes.
+
+* 2020-02-23 - Version 1.0
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
