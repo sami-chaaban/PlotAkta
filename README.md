@@ -46,13 +46,13 @@ python plotakta.py -foe mypurification_results.csv
 
 ![Example plot -foe](./Examples/Option-foe.png "Example plot -foe")
 
-UV trace, %B trace, and log overlaid (for purification overviews):
+UV trace, conductance trace, %B trace, and log overlaid (for purification overviews):
 
 ```
-python plotakta.py -bl mypurification_results.csv
+python plotakta.py -cbl mypurification_results.csv
 ```
 
-![Example plot -bl](./Examples/Option-bl.png "Example plot -bl")
+![Example plot -cbl](./Examples/Option-cbl.png "Example plot -cbl")
 
 UV trace, conductance trace, and fractions labeled, zoomed into the elution fractions:
 
