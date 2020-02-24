@@ -1,5 +1,5 @@
 #SAMI CHAABAN
-#VERSION 1.01 2020-02-24
+#VERSION 1.1 2020-02-24
 
 import optparse
 import numpy as np
@@ -12,9 +12,7 @@ from os import path
 
 def setupParserOptions():
     parser = optparse.OptionParser(usage="Usage: %prog [options] filename",
-                          version="%prog 1.0")
-#     parser.add_option("--i",dest="file",type="string",metavar="FILE",
-#                 help="This should look like this: --i aktafile.csv")
+                          version="%prog 1.01 2020-02-24")
     parser.add_option("-c", "--conductance",
                   action="store_true", dest="conductance", default=False,
                   help="Overlay conductance trace")

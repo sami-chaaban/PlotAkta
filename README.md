@@ -2,7 +2,7 @@
 
 Use this script to turn your Akta results file (.csv) into a nicely formatted pdf (to open in illustrator) and png. It will plot the UV trace, but additional data can be overlaid (see below).
 
-Useage:
+Usage:
 
 ```
 plotakta.py [options] filename.csv
@@ -36,10 +36,24 @@ plotakta.py [options] filename.csv
 
 Options can be combined together without putting a new dash every time (e.g. ***-cbf***)
 
-## Example
+## Examples
+
+UV trace only, fractions labeled, zoomed into the elution fractions (for elution details):
 
 ```
 python plotakta.py -foe mypurification_results.csv
+```
+
+UV trace, %B trace, and log overlaid (for purification overviews):
+
+```
+python plotakta.py -bl mypurification_results.csv
+```
+
+UV trace, conductance trace, and fractions labeled:
+
+```
+python plotakta.py -cf mypurification_results.csv
 ```
 
 ## Updates
