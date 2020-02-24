@@ -44,6 +44,8 @@ UV trace only, fractions labeled, zoomed into the elution fractions (for elution
 python plotakta.py -foe mypurification_results.csv
 ```
 
+![Example plot -foe](./Examples/Option-foe.jpg "Example plot -foe")
+
 UV trace, %B trace, and log overlaid (for purification overviews):
 
 ```
