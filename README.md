@@ -16,23 +16,23 @@ plotakta.py [options] filename.csv
 
 ### Options
 
-**-c** Overlay the Conductance trace
+* **-c** Overlay the Conductance trace
 
-**-b** Overlay the %B trace
+* **-b** Overlay the %B trace
 
-**-l** Overlay the Log (e.g. injection, elution, etc.)
+* **-l** Overlay the Log (e.g. injection, elution, etc.)
 
-**-f** Overlay the fractions from the Akta fractionator
+* **-f** Overlay the fractions from the Akta fractionator
 
-**-t** Overlay and label the fractions from the Cetac fractionator
+* **-t** Overlay and label the fractions from the Cetac fractionator
 
-**-o** Only plot where fractions were collected (add *-e* if you only want elution fractions)
+* **-o** Only plot where fractions were collected (add *-e* if you only want elution fractions)
 
-**-e** Only plot fractions that are marked as part of an elution
+* **-e** Only plot fractions that are marked as part of an elution
 
-**-m** Draw a vertical line at the maximum UV
+* **-m** Draw a vertical line at the maximum UV
 
-**-h** Show help message
+* **-h** Show help message
 
 Options can be combined together without putting a new dash every time (e.g. ***-cbfm***)
 
