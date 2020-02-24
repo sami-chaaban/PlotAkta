@@ -14,7 +14,7 @@ plotakta.py [options] filename.csv
 
 * Export your Akta results file as a .csv file. Avoid spaces in the filename.
 
-### Options
+## Options
 
 * ```-c``` Overlay the Conductance trace
 
