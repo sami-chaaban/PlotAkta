@@ -34,7 +34,7 @@ plotakta.py [options] filename.csv
 
 * ```-h``` Show help message
 
-Options can be combined together without putting a new dash every time (e.g. ***-cbfm***)
+Options can be combined together without putting a new dash every time (e.g. ***-cbf***)
 
 ## Example
 
