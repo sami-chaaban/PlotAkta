@@ -38,7 +38,7 @@ Options can be combined together without putting a new dash every time (e.g. ***
 
 ## Examples
 
-UV trace only, fractions labeled, zoomed into the elution fractions (for elution details):
+UV trace only, fractions labeled, zoomed into the elution fractions:
 
 ```
 python plotakta.py -foe mypurification_results.csv
@@ -52,11 +52,15 @@ UV trace, %B trace, and log overlaid (for purification overviews):
 python plotakta.py -bl mypurification_results.csv
 ```
 
-UV trace, conductance trace, and fractions labeled:
+![Example plot -bl](./Examples/Option-bl.png "Example plot -bl")
+
+UV trace, conductance trace, and fractions labeled, zoomed into the elution fractions:
 
 ```
-python plotakta.py -cf mypurification_results.csv
+python plotakta.py -cfoe mypurification_results.csv
 ```
+
+![Example plot -cfoe](./Examples/Option-cfoe.png "Example plot -cfoe")
 
 ## Updates
 
