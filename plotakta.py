@@ -1,5 +1,5 @@
 #SAMI CHAABAN
-#VERSION 1.0 2020-02-23
+#VERSION 1.01 2020-02-24
 
 import optparse
 import numpy as np
@@ -45,8 +45,11 @@ def setupParserOptions():
 
     options,args = parser.parse_args()
 
-    if len(args) > 2:
-            parser.error("Unknown commandline options: " + str(args))
+    if len(args) > 1:
+            parser.error("\nToo many filenames.")
+
+    if len(args) == 0:
+            parser.error("\nNo filename.")
             
     if len(sys.argv) < 2:
             parser.print_help()
@@ -254,7 +257,7 @@ def mainloop(params):
 
 
     plt.xlabel('Volume (mL)', fontsize = 20, fontname="Arial")
-    plt.ylabel('Absorbance 280 (mAU)', fontsize = 20, fontname="Arial", color = 'darkblue')
+    plt.ylabel('Absorbance 280nm (mAU)', fontsize = 20, fontname="Arial", color = 'darkblue')
     plt.xticks(fontsize = 20, fontname="Arial")
     plt.yticks(fontsize = 20, fontname="Arial")
 
@@ -317,6 +320,9 @@ def mainloop(params):
         ax4.set_ylabel("Concentration B (%)",fontsize=20, color = 'green')
         ax4.yaxis.set_tick_params(labelsize=20)
         ax4.set_ylim(0, 100)
+        
+        if doCond:
+            ax4.spines["right"].set_position(("axes", 1.1))
 
     if doCond:
 
