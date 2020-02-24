@@ -32,7 +32,7 @@ plotakta.py [options] filename.csv
 
 * ```-m``` Draw a vertical line at the maximum UV
 
-* 	**-h** Show help message
+* ```-h``` Show help message
 
 Options can be combined together without putting a new dash every time (e.g. ***-cbfm***)
 

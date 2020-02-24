@@ -1,5 +1,5 @@
 #SAMI CHAABAN
-#VERSION 1.1 2020-02-24
+#VERSION 1.0 2020-02-23
 
 import optparse
 import numpy as np
@@ -254,7 +254,7 @@ def mainloop(params):
 
 
     plt.xlabel('Volume (mL)', fontsize = 20, fontname="Arial")
-    plt.ylabel('Absorbance 280 (mAU)', fontsize = 20, fontname="Arial")
+    plt.ylabel('Absorbance 280 (mAU)', fontsize = 20, fontname="Arial", color = 'darkblue')
     plt.xticks(fontsize = 20, fontname="Arial")
     plt.yticks(fontsize = 20, fontname="Arial")
 
