@@ -47,7 +47,7 @@ def setupParserOptions():
             parser.error("\nToo many filenames.")
 
     if len(args) == 0:
-            parser.error("\nNo filename.")
+            parser.error("\nNo filename. Run plotakta.py -h to get the help text.")
             
     if len(sys.argv) < 2:
             parser.print_help()
@@ -89,14 +89,16 @@ def mainloop(params):
 
     aktafile = params["file"]
 
+#Test code from here
+
     aktafile_exists = path.exists(aktafile)
-    
+
     if not aktafile_exists:
-        
+
         print('\nERROR: ' + aktafile + ' does not exist.')
-        
+
         sys.exit()
-    
+
     #####################################################
 
     aktalst = []
@@ -175,8 +177,13 @@ def mainloop(params):
 
     ###########################################################
 
+    uv_x = 0
+    cond_x = 0
+    concb_x = 0
+    frac_x = 0
+    log_x = 0
     dig1_x = 0
-    
+
     for n,i in enumerate(aktalst):
         #print(i[1])
         if i[1] == 'UV 1_280':
@@ -218,6 +225,13 @@ def mainloop(params):
             log_x = floatize(clean(log_x))
 
             log_text = clean(aktalst[n+1][3:])
+            
+        if i[1] == 'Run Log':
+
+            log_x = i[3:]
+            log_x = floatize(clean(log_x))
+
+            log_text = clean(aktalst[n+1][3:])
 
         if i[1] == 'Digital in 1':
 
@@ -227,14 +241,40 @@ def mainloop(params):
             dig1_signal = aktalst[n+1][3:]
             dig1_signal = floatize(clean(dig1_signal))
             
-    if doDig1 and dig1_x == 0:
-        
-        print('\nERROR: No \'Digial in 1\' column in the CSV file.')
-        
+    #######################################################################
+
+    if uv_x == 0:
+
+        print('\nERROR: No \'UV 1_280\' (UV trace) column in the CSV file.')
         sys.exit()
-    
+        
+    if doCond and cond_x == 0:
+
+        print('\nERROR: No \'Cond\' (conductance) column in the CSV file.')
+        sys.exit()
+        
+    if doConcB and concb_x == 0:
+
+        print('\nERROR: No \'Conc B\' (concentration B) column in the CSV file.')
+        sys.exit()
+        
+    if doFracs and frac_x == 0:
+
+        print('\nERROR: No \'Fraction\' column in the CSV file.')
+        sys.exit()
+        
+    if doLog and log_x == 0:
+
+        print('\nERROR: No \'Run Log\' column in the CSV file.')
+        sys.exit()
+        
+    if doDig1 and dig1_x == 0:
+
+        print('\nERROR: No \'Digial in 1\' Cetac column in the CSV file.')
+        sys.exit()
+
     #####################################################
-    
+
     xmin = uv_x[0]
     xmax = uv_x[-1]
 
@@ -318,7 +358,7 @@ def mainloop(params):
         ax4.set_ylabel("Concentration B (%)",fontsize=20, color = 'green')
         ax4.yaxis.set_tick_params(labelsize=20)
         ax4.set_ylim(0, 100)
-        
+
         if doCond:
             ax4.spines["right"].set_position(("axes", 1.1))
 
@@ -417,7 +457,7 @@ def mainloop(params):
         except:
 
             print('\nERROR: Something went wrong parsing the Cetac data.')
-            
+
             sys.exit()
 
     plt.xlim(xmin, xmax)
@@ -449,10 +489,12 @@ def mainloop(params):
     plt.savefig(aktafile[:-4]+'.png', dpi=300)
 
     plt.show()
-    
+
     plt.ion()
-    
+
     print('\nOutput: ' + aktafile[:-4] + '.pdf and .png')
+
+#Test code ends here
     
     sys.exit()
     
