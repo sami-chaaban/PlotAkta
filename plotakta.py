@@ -1,5 +1,5 @@
 #SAMI CHAABAN
-#VERSION 1.0 2020-02-23
+#VERSION 1.1 2020-02-24
 
 import optparse
 import numpy as np
@@ -254,7 +254,7 @@ def mainloop(params):
 
 
     plt.xlabel('Volume (mL)', fontsize = 20, fontname="Arial")
-    plt.ylabel('mAU', fontsize = 20, fontname="Arial")
+    plt.ylabel('Absorbance 280 (mAU)', fontsize = 20, fontname="Arial")
     plt.xticks(fontsize = 20, fontname="Arial")
     plt.yticks(fontsize = 20, fontname="Arial")
 
@@ -442,13 +442,13 @@ def mainloop(params):
     plt.tight_layout()
 
     plt.savefig(aktafile[:-4]+'.pdf')
-    plt.savefig(aktafile[:-4]+'.jpg', dpi=300)
+    plt.savefig(aktafile[:-4]+'.png', dpi=300)
 
     plt.show()
     
     plt.ion()
     
-    print('\nOutput: ' + aktafile[:-4] + '.pdf and .jpg')
+    print('\nOutput: ' + aktafile[:-4] + '.pdf and .png')
     
     sys.exit()
     
