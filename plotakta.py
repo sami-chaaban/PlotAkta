@@ -1,5 +1,5 @@
 #SAMI CHAABAN
-#VERSION 1.1 2020-02-24
+#VERSION 1.1 2020-02-25
 
 import optparse
 import numpy as np
@@ -95,7 +95,7 @@ def mainloop(params):
 
     if not aktafile_exists:
 
-        print('\nERROR: ' + aktafile + ' does not exist.')
+        print('\nERROR: ' + aktafile + ' does not exist.Run plotakta.py -h to get the help text.')
 
         sys.exit()
 
@@ -278,6 +278,9 @@ def mainloop(params):
     xmin = uv_x[0]
     xmax = uv_x[-1]
 
+    ymins = []
+    ymaxs = []
+
     #####################################################        
 
     fig,ax = plt.subplots(figsize = (20,5))
@@ -293,63 +296,15 @@ def mainloop(params):
 
         ax.plot(uv_x, uv_trace, linewidth = 2, color = 'darkblue')
 
+    # MAIN PLOT
 
     plt.xlabel('Volume (mL)', fontsize = 20, fontname="Arial")
     plt.ylabel('Absorbance 280nm (mAU)', fontsize = 20, fontname="Arial", color = 'darkblue')
     plt.xticks(fontsize = 20, fontname="Arial")
     plt.yticks(fontsize = 20, fontname="Arial")
 
-    if showUVmax:
-
-        maxpos = uv_trace.index(max(uv_trace))
-        maxvol = uv_x[maxpos]
-
-        ax.plot([maxvol, maxvol], [np.amin(uv_trace), np.amax(uv_trace)], '--', color = 'orange', linewidth = 1.5)
-
-    if doFracs:
-
-        frac_x_loc = []
-
-        for d in np.arange(0,len(frac_x)-1):
-
-            frac_x_loc.append((frac_x[d] + frac_x[d+1]) /2)
-
-        for fx, ff, fxl in zip(frac_x, fracs, frac_x_loc):
-
-            if useElutionMark:
-
-                if fx > log_x[log_text.index('Elution')]:
-
-                    ax.text(fxl, int(np.amax(uv_trace)/8), ff, fontsize=15, rotation = 90,
-                             horizontalalignment='center', fontname="Arial", color = 'k', alpha = 0.6)
-
-                    ax.plot([fx]*int(np.amax(uv_trace)), np.arange(0,int(np.amax(uv_trace))), '--', color = 'k', alpha = 0.6, linewidth = 1)
-
-            else:
-
-                ax.text(fxl, int(np.amax(uv_trace)/8), ff, fontsize=15, rotation = 90,
-                         horizontalalignment='center', fontname="Arial", color = 'k', alpha = 0.6)
-
-                ax.plot([fx]*int(np.amax(uv_trace)), np.arange(0,int(np.amax(uv_trace))), '--', color = 'k', alpha = 0.6, linewidth = 1)
-
-        if showOnlyFracs:
-
-            if useElutionMark:
-
-                xmin = log_x[log_text.index('Elution')]
-                xmax = np.amax(frac_x)
-
-            else:
-
-                xmin = np.amin(frac_x)
-                xmax = np.amax(frac_x)
-
-        else:
-
-            xmin = uv_x[0]
-            xmax = uv_x[-1]
-
-        plt.xlim(xmin, xmax)
+    ymins.append(ax.get_ylim()[0])
+    ymaxs.append(ax.get_ylim()[1])
 
     if doConcB:
 
@@ -361,6 +316,9 @@ def mainloop(params):
 
         if doCond:
             ax4.spines["right"].set_position(("axes", 1.1))
+            
+        ymins.append(ax4.get_ylim()[0])
+        ymaxs.append(ax4.get_ylim()[1])
 
     if doCond:
 
@@ -368,6 +326,14 @@ def mainloop(params):
         ax3.plot(cond_x, cond_trace, color = 'brown', linewidth = 2)
         ax3.set_ylabel("Conductance (mS/cm)",fontsize=20, color = 'brown')
         ax3.yaxis.set_tick_params(labelsize=20)
+        
+        ymins.append(ax3.get_ylim()[0])
+        ymaxs.append(ax3.get_ylim()[1])
+        
+    ##############
+
+    ymin = np.amin(ymins)
+    ymax = np.amax(ymaxs)
 
     if doLog:
 
@@ -380,7 +346,7 @@ def mainloop(params):
                     ax.text(lx, int(np.amax(uv_trace)*0.7), lt, fontsize=12, rotation = 90,
                              horizontalalignment='center', fontname="Arial", color = 'r', alpha = 0.6)
 
-                    ax.plot([lx]*int(np.amax(uv_trace)*0.66), np.arange(0,int(np.amax(uv_trace)*0.66)), '-',
+                    ax.plot([lx, lx], [ymin,np.amax(uv_trace)*0.66], '-',
                             color = 'r', alpha = 0.6, linewidth = 1)
 
             elif showOnlyFracs and doFracs and useElutionMark:
@@ -390,7 +356,7 @@ def mainloop(params):
                     ax.text(lx, int(np.amax(uv_trace)*0.7), lt, fontsize=12, rotation = 90,
                              horizontalalignment='center', fontname="Arial", color = 'r', alpha = 0.6)
 
-                    ax.plot([lx]*int(np.amax(uv_trace)*0.66), np.arange(0,int(np.amax(uv_trace)*0.66)), '-',
+                    ax.plot([lx, lx], [ymin,np.amax(uv_trace)*0.66], '-',
                             color = 'r', alpha = 0.6, linewidth = 1)
 
             elif showOnlyFracs and doFracs:
@@ -400,7 +366,7 @@ def mainloop(params):
                     ax.text(lx, int(np.amax(uv_trace)*0.7), lt, fontsize=12, rotation = 90,
                              horizontalalignment='center', fontname="Arial", color = 'r', alpha = 0.6)
 
-                    ax.plot([lx]*int(np.amax(uv_trace)*0.66), np.arange(0,int(np.amax(uv_trace)*0.66)), '-',
+                    ax.plot([lx, lx], [ymin,np.amax(uv_trace)*0.66], '-',
                             color = 'r', alpha = 0.6, linewidth = 1)
 
             else:
@@ -408,7 +374,7 @@ def mainloop(params):
                 ax.text(lx, int(np.amax(uv_trace)*0.7), lt, fontsize=12, rotation = 90,
                          horizontalalignment='center', fontname="Arial", color = 'r', alpha = 0.6)
 
-                ax.plot([lx]*int(np.amax(uv_trace)*0.66), np.arange(0,int(np.amax(uv_trace)*0.66)), '-',
+                ax.plot([lx, lx], [ymin,np.amax(uv_trace)*0.66], '-',
                         color = 'r', alpha = 0.6, linewidth = 1)
 
     if doDig1:
@@ -459,6 +425,56 @@ def mainloop(params):
             print('\nERROR: Something went wrong parsing the Cetac data.')
 
             sys.exit()
+            
+    if showUVmax:
+
+        maxpos = uv_trace.index(max(uv_trace))
+        maxvol = uv_x[maxpos]
+
+        ax.plot([maxvol, maxvol], [ymin, np.amax(uv_trace)], color = 'orange', linewidth = 1.5)
+
+    if doFracs:
+
+        frac_x_loc = []
+
+        for d in np.arange(0,len(frac_x)-1):
+
+            frac_x_loc.append((frac_x[d] + frac_x[d+1]) /2)
+
+        for fx, ff, fxl in zip(frac_x, fracs, frac_x_loc):
+
+            if useElutionMark:
+
+                if fx > log_x[log_text.index('Elution')]:
+
+                    ax.text(fxl, int(np.amax(uv_trace)/8), ff, fontsize=15, rotation = 90,
+                             horizontalalignment='center', fontname="Arial", color = 'k', alpha = 0.6)
+
+                    ax.plot([fx, fx], [ymin, ymax], '--', color = 'k', alpha = 0.6, linewidth = 1)
+
+            else:
+
+                ax.text(fxl, int(np.amax(uv_trace)/8), ff, fontsize=15, rotation = 90,
+                         horizontalalignment='center', fontname="Arial", color = 'k', alpha = 0.6)
+
+                ax.plot([fx, fx], [ymin, ymax], '--', color = 'k', alpha = 0.6, linewidth = 1)
+
+        if showOnlyFracs:
+
+            if useElutionMark:
+
+                xmin = log_x[log_text.index('Elution')]
+                xmax = np.amax(frac_x)
+
+            else:
+
+                xmin = np.amin(frac_x)
+                xmax = np.amax(frac_x)
+
+        else:
+
+            xmin = uv_x[0]
+            xmax = uv_x[-1]
 
     plt.xlim(xmin, xmax)
 

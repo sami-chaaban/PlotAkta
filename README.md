@@ -54,13 +54,13 @@ python plotakta.py -cbl mypurification_results.csv
 
 ![Example plot -cbl](./Examples/Option-cbl.png "Example plot -cbl")
 
-UV trace, conductance trace, and fractions labeled, zoomed into the elution fractions:
+UV trace, conductance trace, and fractions labeled, zoomed into the elution fractions, with a line drawn at maximum UV:
 
 ```
-python plotakta.py -cfoe mypurification_results.csv
+python plotakta.py -cfoem mypurification_results.csv
 ```
 
-![Example plot -cfoe](./Examples/Option-cfoe.png "Example plot -cfoe")
+![Example plot -cfoem](./Examples/Option-cfoem.png "Example plot -cfoem")
 
 ## Updates
 
