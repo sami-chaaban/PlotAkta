@@ -44,9 +44,9 @@ UV trace only, fractions labeled, zoomed into the elution fractions:
 python plotakta.py -foe mypurification_results.csv
 ```
 
----
-
 ![Example plot -foe](./Examples/Option-foe.png "Example plot -foe")
+
+---
 
 UV trace, conductance trace, %B trace, and log overlaid (for purification overviews):
 
@@ -54,9 +54,9 @@ UV trace, conductance trace, %B trace, and log overlaid (for purification overvi
 python plotakta.py -cbl mypurification_results.csv
 ```
 
----
-
 ![Example plot -cbl](./Examples/Option-cbl.png "Example plot -cbl")
+
+---
 
 UV trace, conductance trace, and fractions labeled, zoomed into the elution fractions, with a line drawn at maximum UV:
 
@@ -64,9 +64,9 @@ UV trace, conductance trace, and fractions labeled, zoomed into the elution frac
 python plotakta.py -cfoem mypurification_results.csv
 ```
 
----
-
 ![Example plot -cfoem](./Examples/Option-cfoem.png "Example plot -cfoem")
+
+---
 
 UV trace only, CETAC fractions labeled, zoomed into the elution fractions:
 
