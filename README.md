@@ -1,6 +1,6 @@
 # Plot Unicorn Results
 
-Use this script to turn your Akta results file (.csv) into a nicely formatted pdf (to open in illustrator) and png. It will plot the UV trace, but additional data can be overlaid (see below).
+Use this script to turn your Akta results file from Unicorn (.csv) into a nicely formatted pdf and png. It will plot the UV trace, but additional data can be overlaid (see below).
 
 Usage:
 
