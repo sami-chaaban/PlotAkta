@@ -24,7 +24,7 @@ plotakta.py [options] filename.csv
 
 * ```-f``` Overlay the fractions from the Akta fractionator
 
-* ```-t``` Overlay and label the fractions from the Cetac fractionator
+* ```-t``` Overlay and label the fractions from the CETAC fractionator
 
 * ```-o``` Only plot where fractions were collected (add *-e* if you only want elution fractions)
 
@@ -62,9 +62,17 @@ python plotakta.py -cfoem mypurification_results.csv
 
 ![Example plot -cfoem](./Examples/Option-cfoem.png "Example plot -cfoem")
 
+UV trace only, CETAC fractions labeled, zoomed into the elution fractions:
+
+```
+python plotakta.py -toe mypurification_results.csv
+```
+
+![Example plot -toe](./Examples/Option-toe.png "Example plot -toe")
+
 ## Updates
 
-* 2020-02-24 - Version 1.1 - Bug fixes.
+* 2020-02-25 - Version 1.1
 
 * 2020-02-23 - Version 1.0
 
