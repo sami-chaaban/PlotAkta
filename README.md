@@ -92,7 +92,7 @@ This is a fairly simple script that reads the columns from the .csv file and ide
 
 The data is plotted depending on the options selected in the command line arguments. The script has only been tested for Unicorn 7.0, 7.1, and 7.3 and CETAC 1.3.1.
 
-The CETAC fractions are labeled assuming that fractions are in between two Digital In peak signals. The Digital In signal is also shown for verification.
+The CETAC fractions are labeled assuming that true fractions are in between two dips in the signal (also shown for verification). See the last example above.
 
 ## Updates
 
