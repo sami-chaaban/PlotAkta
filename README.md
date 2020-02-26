@@ -84,8 +84,8 @@ This is a fairly simple script that reads the columns from the .csv file and ide
 | Heading       | Data          		|
 | ------------- |---------------------- |
 | UV 1_280      | UV trace 				|
-| Cond      	| Conductance Trace 	|
-| Conc B 		| Percent B Trace   	|
+| Cond      	| Conductance trace 	|
+| Conc B 		| Percent B trace   	|
 | Fraction 		| Fraction labels   	|
 | Run Log 		| Run Log labels    	|
 | Digital in 1 	| CETAC fraction labels |
