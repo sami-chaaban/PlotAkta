@@ -218,13 +218,6 @@ def mainloop(params):
             fracs = clean(aktalst[n+1][3:])
 
             frac_x = frac_x[:len(fracs)]   
-
-        if i[1] == 'Run Log':
-
-            log_x = i[3:]
-            log_x = floatize(clean(log_x))
-
-            log_text = clean(aktalst[n+1][3:])
             
         if i[1] == 'Run Log':
 

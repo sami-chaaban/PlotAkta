@@ -76,6 +76,24 @@ python plotakta.py -toe mypurification_results.csv
 
 ![Example plot -toe](./Examples/Option-toe.png "Example plot -toe")
 
+---
+
+## How it Works
+
+This is a fairly simple script that reads the columns from the .csv file and identifies columns with specific labels:
+
+
+| Heading       | Data          		|
+| ------------- |---------------------- |
+| UV 1_280      | UV trace 				|
+| Cond      	| Conductance Trace 	|
+| Conc B 		| Percent B Trace   	|
+| Fraction 		| Fraction labels   	|
+| Run Log 		| Run Log labels    	|
+| Digital in 1 	| CETAC fraction labels |
+
+The data is plotted depending on the options selected in the command line arguments. The script has only been tested for Unicorn 7.0, 7.1, and 7.3 and CETAC 1.3.1.
+
 ## Updates
 
 * 2020-02-25 - Version 1.1
