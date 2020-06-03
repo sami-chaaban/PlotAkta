@@ -12,7 +12,7 @@ plotakta.py [options] filename.csv
 
 * Make sure you have Python 3 installed and have the **numpy** and **matplotlib** packages.
 
-* Export your Akta results file as a .csv file. Avoid spaces in the filename.
+* Export your Akta results file as a .csv file, making sure to include the data that you would like to eventually plot. Avoid spaces in the filename.
 
 ## Options
 
