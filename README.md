@@ -18,6 +18,8 @@ plotakta.py [options] filename.csv
 
 * ```-c``` Overlay the Conductance trace
 
+* ```-u``` Overlay the UV-260nm trace
+
 * ```-b``` Overlay the %B trace
 
 * ```-l``` Overlay the Log (e.g. injection, elution, etc.)
@@ -96,9 +98,7 @@ The CETAC fractions are labeled assuming that true fractions are in between two 
 
 ## Updates
 
-* 2020-02-25 - Version 1.1
-
-* 2020-02-23 - Version 1.0
+* 2022-10-21: Added UV-260nm option.
 
 ## License
 

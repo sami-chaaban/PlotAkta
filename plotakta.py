@@ -1,5 +1,5 @@
 #SAMI CHAABAN
-#VERSION 1.2 2020-07-16
+#VERSION 1.3 2022-10-21
 
 import optparse
 import numpy as np
@@ -16,6 +16,9 @@ def setupParserOptions():
     parser.add_option("-c", "--conductance",
                   action="store_true", dest="conductance", default=False,
                   help="Overlay conductance trace")
+    parser.add_option("-u", "--uv260",
+                  action="store_true", dest="uv260", default=False,
+                  help="Overlay UV-260nm trace.")
     parser.add_option("-b", "--percent_b",
                   action="store_true", dest="percentb", default=False,
                   help="Overlay % B")
@@ -70,6 +73,7 @@ def mainloop(params):
     doCond = params["conductance"]
     doConcB = params["percentb"]
     doLog = params["log"]
+    doUV260 = params["uv260"]
 
     #FOR REGULAR AKTA FRACS
     doFracs = params["fracs"]
@@ -181,6 +185,7 @@ def mainloop(params):
     ###########################################################
 
     uv_x = 0
+    uv260_x = 0
     cond_x = 0
     concb_x = 0
     frac_x = 0
@@ -196,6 +201,14 @@ def mainloop(params):
 
             uv_trace = aktalst[n+1][3:]
             uv_trace = floatize(clean(uv_trace))
+
+        if i[1] == 'UV 2_260':
+
+            uv260_x = i[3:]
+            uv260_x = floatize(clean(uv260_x))
+
+            uv260_trace = aktalst[n+1][3:]
+            uv260_trace = floatize(clean(uv260_trace))
 
         if i[1] == 'Cond':
 
@@ -244,6 +257,11 @@ def mainloop(params):
         print('\nERROR: No \'UV 1_280\' (UV trace) column in the CSV file.')
         sys.exit()
         
+    if uv260_x == 0:
+
+        print('\nERROR: No \'UV 2_260\' (UV trace) column in the CSV file.')
+        sys.exit()
+
     if doCond and cond_x == 0:
 
         print('\nERROR: No \'Cond\' (conductance) column in the CSV file.')
@@ -315,6 +333,16 @@ def mainloop(params):
             
         ymins.append(ax4.get_ylim()[0])
         ymaxs.append(ax4.get_ylim()[1])
+
+    if doUV260:
+
+        ax5=ax.twinx()
+        ax5.plot(uv260_x, uv260_trace, color = 'purple', linewidth = 2)
+        ax5.set_ylabel("Absorbance 260nm (mAU)",fontsize=20, color = 'purple')
+        ax5.yaxis.set_tick_params(labelsize=20)
+            
+        ymins.append(ax5.get_ylim()[0])
+        ymaxs.append(ax5.get_ylim()[1])
 
     if doCond:
 
