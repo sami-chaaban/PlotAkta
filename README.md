@@ -85,7 +85,8 @@ This is a fairly simple script that reads the columns from the .csv file and ide
 
 | Heading       | Data          		|
 | ------------- |---------------------- |
-| UV 1_280      | UV trace 				|
+| UV 1_280      | UV trace at 280nm		|
+| UV 2_260      | UV trace at 260nm     |
 | Cond      	| Conductance trace 	|
 | Conc B 		| Percent B trace   	|
 | Fraction 		| Fraction labels   	|
