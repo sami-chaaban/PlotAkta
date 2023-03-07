@@ -1,6 +1,6 @@
 # Plot Akta Results
 
-Use this script to turn your Akta results file from Unicorn (.csv) into a nicely formatted pdf and png. It will plot the UV trace, but additional data can be overlaid (see below).
+Use this script to turn your Akta results file from Unicorn (.csv) into a nicely formatted pdf and png. It will plot the UV-280 trace, but additional data can be overlaid (see below).
 
 Usage:
 
@@ -15,6 +15,8 @@ plotakta.py [options] filename.csv
 * Export your Akta results file as a .csv file, making sure to include the data that you would like to eventually plot. Avoid spaces in the filename.
 
 ## Options
+
+*The UV-280 trace will be drawn by default*
 
 * ```-c``` Overlay the Conductance trace
 
