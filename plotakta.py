@@ -257,7 +257,7 @@ def mainloop(params):
         print('\nERROR: No \'UV 1_280\' (UV trace) column in the CSV file.')
         sys.exit()
         
-    if uv260_x == 0:
+    if doUV260 and uv260_x == 0:
 
         print('\nERROR: No \'UV 2_260\' (UV trace) column in the CSV file.')
         sys.exit()
